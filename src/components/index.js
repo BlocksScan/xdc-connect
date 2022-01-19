@@ -9,8 +9,6 @@ import store from "../redux/store";
 import * as Wallet from "../wallets";
 import * as actions from "../actions/index";
 
-import "../assets/scss/main.scss";
-import "react-toastify/dist/ReactToastify.css";
 
 export const XdcConnect = (props) => {
   const toastContainer = props.addToastContainer ? (
