@@ -11,8 +11,6 @@ exports.SendTransaction = void 0;
 
 var _xdc = _interopRequireDefault(require("xdc3"));
 
-var _reactToastify = require("react-toastify");
-
 var xinpay = _interopRequireWildcard(require("./xinpay"));
 
 var account = _interopRequireWildcard(require("./account"));
@@ -86,7 +84,7 @@ var SendTransaction = function SendTransaction(tx) {
   return new Promise(function (resolve, reject) {
     var wallet = _store.default.getState().wallet;
 
-    var toastId = (0, _reactToastify.toast)("Processing TX ...", {
+    var toastId = console.log("Processing TX ...", {
       position: "bottom-right",
       type: "processing-tx",
       autoClose: false,
@@ -100,7 +98,7 @@ var SendTransaction = function SendTransaction(tx) {
     return GetFuncFromLoader(wallet.loader).SendTransaction(tx).then(function (resp) {
       if (resp.transactionHash) {
         var transactionHash = resp.transactionHash;
-        (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
           children: ["Success\xA0", /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
             href: (0, _crypto.BUILD_TX_LINK)(wallet.explorer, transactionHash),
             rel: "noreferrer",
@@ -127,7 +125,7 @@ var SendTransaction = function SendTransaction(tx) {
       var message = e.message || /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
         children: "Failing Transaction"
       });
-      (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("b", {
           children: "Error"
         }), ":", message]
@@ -144,7 +142,7 @@ var SendTransaction = function SendTransaction(tx) {
       });
       reject(e);
     }).finally(function () {
-      if (toastId) _reactToastify.toast.dismiss(toastId);
+      console.log(toastId, 'toastId'); // if (toastId) toast.dismiss(toastId);
     });
   });
 };

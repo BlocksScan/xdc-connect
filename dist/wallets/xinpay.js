@@ -32,8 +32,6 @@ var actions = _interopRequireWildcard(require("../actions"));
 
 var _store = _interopRequireDefault(require("../redux/store"));
 
-var _reactToastify = require("react-toastify");
-
 var _miscellaneous = require("../helpers/miscellaneous");
 
 var _math = require("../helpers/math");
@@ -154,7 +152,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
               children: ["XDCPay not available in the browser. Please refer", " ", /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
                 href: "https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en",
                 children: "here"
@@ -176,7 +174,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
               children: ["Metamask detected. Please disable Metamask & install", " ", /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
                 href: "https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en",
                 children: "XDCPay"
@@ -192,7 +190,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
               children: ["XDCPay not available in the browser. Please refer", " ", /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
                 href: "https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en",
                 children: "here"
@@ -216,7 +214,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)("Please unlock XDCPay wallet to continue", {
+            console.log("Please unlock XDCPay wallet to continue", {
               autoClose: 2000
             });
             return _context7.abrupt("return", _store.default.dispatch(actions.WalletDisconnected()));
@@ -233,7 +231,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
               children: ["XDCPay not available in the browser. Please refer", " ", /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
                 href: "https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en",
                 children: "here"
@@ -283,7 +281,7 @@ function _initXdc() {
               break;
             }
 
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
               children: "Error while connecting to XDCPay: Timeout. Please check your XDCPay or try after refresh."
             }), {
               autoClose: false
@@ -291,7 +289,7 @@ function _initXdc() {
             return _context7.abrupt("return", _store.default.dispatch(actions.WalletDisconnected()));
 
           case 47:
-            (0, _reactToastify.toast)( /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+            console.log( /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
               children: "Error while connecting to XDCPay provider"
             }), {
               autoClose: false

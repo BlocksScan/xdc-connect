@@ -16,8 +16,6 @@ var _xdc = _interopRequireDefault(require("xdc3"));
 
 var _detectProvider = _interopRequireDefault(require("@metamask/detect-provider"));
 
-var _reactToastify = require("react-toastify");
-
 var _constant = require("../helpers/constant");
 
 var _crypto = require("../helpers/crypto");
@@ -105,7 +103,7 @@ var initDcent = /*#__PURE__*/function () {
               break;
             }
 
-            (0, _reactToastify.toast)("Browser doesn't support DCent wallet, please open in In-App Browser of DCent");
+            console.log("Browser doesn't support DCent wallet, please open in In-App Browser of DCent");
             return _context.abrupt("return", _store.default.dispatch(actions.WalletDisconnected()));
 
           case 5:

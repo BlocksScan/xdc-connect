@@ -13,8 +13,6 @@ var _reactRedux = require("react-redux");
 
 var _reactBootstrap = require("react-bootstrap");
 
-var _reactToastify = require("react-toastify");
-
 var _Keystore = _interopRequireDefault(require("./Keystore"));
 
 var _PrivateKey = _interopRequireDefault(require("./PrivateKey"));
@@ -85,7 +83,7 @@ var WalletConnect = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "accountCallback", function (loader) {
       return function (account) {
-        if (account === null) (0, _reactToastify.toast)("error while loading wallet", {
+        if (account === null) console.log("error while loading wallet", {
           autoClose: 2000,
           type: "error"
         });else {
