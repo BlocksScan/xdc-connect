@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 
 import WalletConnect from "./wallet-connect/walletConnect";
 
@@ -10,24 +10,24 @@ import * as Wallet from "../wallets";
 import * as actions from "../actions/index";
 
 
-export const XdcConnect = (props) => {
-  const toastContainer = props.addToastContainer ? (
-    props.toastContainer ? (
-      props.toastContainer
-    ) : (
-      <ToastContainer className="xdc-connect" />
-    )
-  ) : (
-    ""
-  );
+// export const XdcConnect = (props) => {
+//   const toastContainer = props.addToastContainer ? (
+//     props.toastContainer ? (
+//       props.toastContainer
+//     ) : (
+//       <ToastContainer className="xdc-connect" />
+//     )
+//   ) : (
+//     ""
+//   );
 
-  return (
-    <Provider store={store}>
-      {toastContainer}
-      <WalletConnect {...props} />
-    </Provider>
-  );
-};
+//   return (
+//     <Provider store={store}>
+//       {toastContainer}
+//       <WalletConnect {...props} />
+//     </Provider>
+//   );
+// };
 
 XdcConnect.propTypes = {
   onConnect: PropTypes.func,

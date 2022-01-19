@@ -1,6 +1,5 @@
 import Xdc3 from "xdc3";
 import detectEthereumProvider from "@metamask/detect-provider";
-import { toast } from "react-toastify";
 
 import { CHAIN_DATA, LOADERS } from "../helpers/constant";
 
@@ -29,7 +28,7 @@ export const initDcent = async () => {
   try {
     const isSupported = DcentSupported();
     if (!isSupported) {
-      toast(
+      console.log(
         "Browser doesn't support DCent wallet, please open in In-App Browser of DCent"
       );
       return store.dispatch(actions.WalletDisconnected());

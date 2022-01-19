@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
-import { toast } from "react-toastify";
 
 import Keystore from "./Keystore";
 import PrivateKey from "./PrivateKey";
@@ -94,7 +93,7 @@ class WalletConnect extends React.Component {
 
   accountCallback = (loader) => (account) => {
     if (account === null)
-      toast("error while loading wallet", { autoClose: 2000, type: "error" });
+      console.log("error while loading wallet", { autoClose: 2000, type: "error" });
     else {
       this.props.WalletConnected({
         account,

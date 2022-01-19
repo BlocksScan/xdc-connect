@@ -7,7 +7,6 @@ import { CHAIN_DATA, HTTP_PROVIDER, LOADERS } from "../helpers/constant";
 
 import * as actions from "../actions";
 import store from "../redux/store";
-import { toast } from "react-toastify";
 import { WithTimeout } from "../helpers/miscellaneous";
 import { RemoveExpo } from "../helpers/math";
 
@@ -38,7 +37,7 @@ export async function GetChainId() {
 export async function initXdc3() {
   try {
     if (!window.ethereum) {
-      toast(
+      console.log(
         <div>
           XDCPay not available in the browser. Please refer{" "}
           <a href="https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en">
@@ -56,7 +55,7 @@ export async function initXdc3() {
     const currentProvider = await GetCurrentProvider();
 
     if (currentProvider === "metamask") {
-      toast(
+      console.log(
         <div>
           Metamask detected. Please disable Metamask & install{" "}
           <a href="https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en">
@@ -72,7 +71,7 @@ export async function initXdc3() {
     }
 
     if (currentProvider !== "xinpay") {
-      toast(
+      console.log(
         <div>
           XDCPay not available in the browser. Please refer{" "}
           <a href="https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en">
@@ -89,12 +88,12 @@ export async function initXdc3() {
 
     const isLocked = await WithTimeout(IsLocked, { timeout: 2000 });
     if (isLocked === true) {
-      toast("Please unlock XDCPay wallet to continue", { autoClose: 2000 });
+      console.log("Please unlock XDCPay wallet to continue", { autoClose: 2000 });
       return store.dispatch(actions.WalletDisconnected());
     }
 
     if ((await GetCurrentProvider()) !== "xinpay") {
-      toast(
+      console.log(
         <div>
           XDCPay not available in the browser. Please refer{" "}
           <a href="https://chrome.google.com/webstore/detail/xdcpay/bocpokimicclpaiekenaeelehdjllofo?hl=en">
@@ -125,7 +124,7 @@ export async function initXdc3() {
     );
   } catch (e) {
     if (e === "timeout") {
-      toast(
+      console.log(
         <div>
           Error while connecting to XDCPay: Timeout. Please check your XDCPay or
           try after refresh.
@@ -136,7 +135,7 @@ export async function initXdc3() {
       );
       return store.dispatch(actions.WalletDisconnected());
     }
-    toast(<div>Error while connecting to XDCPay provider</div>, {
+    console.log(<div>Error while connecting to XDCPay provider</div>, {
       autoClose: false,
     });
     return store.dispatch(actions.WalletDisconnected());

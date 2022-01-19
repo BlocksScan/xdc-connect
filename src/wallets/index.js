@@ -1,5 +1,4 @@
 import Xdc3 from "xdc3";
-import { toast } from "react-toastify";
 
 import * as xinpay from "./xinpay";
 import * as account from "./account";
@@ -54,7 +53,7 @@ export function GetNativeBalance(address) {
 export const SendTransaction = (tx) => {
   return new Promise((resolve, reject) => {
     const wallet = store.getState().wallet;
-    let toastId = toast("Processing TX ...", {
+    let toastId = console.log("Processing TX ...", {
       position: "bottom-right",
       type: "processing-tx",
       autoClose: false,
@@ -70,7 +69,7 @@ export const SendTransaction = (tx) => {
       .then((resp) => {
         if (resp.transactionHash) {
           const { transactionHash } = resp;
-          toast(
+          console.log(
             <div>
               Success&nbsp;
               <a
@@ -101,7 +100,7 @@ export const SendTransaction = (tx) => {
         console.log("resp", IsJsonRpcError(e));
         console.log("resp", e, e.message);
         const message = e.message || <>Failing Transaction</>;
-        toast(
+        console.log(
           <div>
             <b>Error</b>:{message}
           </div>,
@@ -120,7 +119,8 @@ export const SendTransaction = (tx) => {
         reject(e);
       })
       .finally(() => {
-        if (toastId) toast.dismiss(toastId);
+        console.log(toastId,'toastId')
+        // if (toastId) toast.dismiss(toastId);
       });
   });
 };
